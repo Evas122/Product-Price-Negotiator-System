@@ -2,8 +2,8 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
-using PriceNegotiator.Application.Common.Interfaces;
 using PriceNegotiator.Application.Common.Options;
+using PriceNegotiator.Application.Interfaces;
 using PriceNegotiator.Infrastructure.Repositories;
 using PriceNegotiator.Infrastructure.Services;
 using System.Text;

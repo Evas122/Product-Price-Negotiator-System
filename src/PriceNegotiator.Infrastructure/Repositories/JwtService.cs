@@ -1,6 +1,6 @@
 ﻿using Microsoft.IdentityModel.Tokens;
-using PriceNegotiator.Application.Common.Interfaces;
 using PriceNegotiator.Application.Common.Options;
+using PriceNegotiator.Application.Interfaces;
 using PriceNegotiator.Domain.Entities.Auth;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;

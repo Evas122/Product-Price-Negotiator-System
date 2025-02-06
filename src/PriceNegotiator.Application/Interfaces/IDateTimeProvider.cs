@@ -1,4 +1,4 @@
-﻿namespace PriceNegotiator.Application.Common.Interfaces;
+﻿namespace PriceNegotiator.Application.Interfaces;
 
 public interface IDateTimeProvider
 {

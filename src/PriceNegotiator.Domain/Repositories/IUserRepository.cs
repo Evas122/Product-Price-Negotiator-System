@@ -4,6 +4,6 @@ namespace PriceNegotiator.Domain.Repositories;
 
 public interface IUserRepository
 {
-    Task AddAsync(User user);
-    Task<User?> GetByEmailAsync(string email);
+    Task AddUserAsync(User user);
+    Task<User?> GetUserByEmailAsync(string email);
 }

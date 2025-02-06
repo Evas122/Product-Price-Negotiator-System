@@ -2,9 +2,9 @@
 
 namespace PriceNegotiator.Application.Commands.Login;
 
-public class LoginCommandValidator : AbstractValidator<LoginCommand>
+public class LoginValidator : AbstractValidator<LoginCommand>
 {
-    public LoginCommandValidator()
+    public LoginValidator()
     {
         RuleFor(x => x.Email)
             .NotEmpty()

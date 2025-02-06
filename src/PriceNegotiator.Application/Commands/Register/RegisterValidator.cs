@@ -2,9 +2,9 @@
 
 namespace PriceNegotiator.Application.Commands.Register;
 
-public class RegisterCommandValidator : AbstractValidator<RegisterCommand>
+public class RegisterValidator : AbstractValidator<RegisterCommand>
 {
-    public RegisterCommandValidator()
+    public RegisterValidator()
     {
         RuleFor(x => x.Email)
             .NotEmpty()

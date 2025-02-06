@@ -1,6 +1,6 @@
 ﻿using PriceNegotiator.Application.Dtos.Assortment;
 using PriceNegotiator.Application.Dtos.Paged;
-using PriceNegotiator.Domain.Entities.Assortment;
+using PriceNegotiator.Domain.Entities.Assortments;
 
 namespace PriceNegotiator.Application.Extensions.Mappings.Products;
 public static class ProductExtension

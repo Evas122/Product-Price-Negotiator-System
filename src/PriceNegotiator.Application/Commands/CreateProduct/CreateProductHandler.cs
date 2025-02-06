@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using PriceNegotiator.Application.Interfaces;
 using PriceNegotiator.Application.Interfaces.Messaging;
-using PriceNegotiator.Domain.Entities.Assortment;
+using PriceNegotiator.Domain.Entities.Assortments;
 using PriceNegotiator.Domain.Repositories;
 
 namespace PriceNegotiator.Application.Commands.CreateProduct;

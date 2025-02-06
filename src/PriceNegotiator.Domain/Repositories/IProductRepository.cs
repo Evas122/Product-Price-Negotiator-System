@@ -1,4 +1,4 @@
-﻿using PriceNegotiator.Domain.Entities.Assortment;
+﻿using PriceNegotiator.Domain.Entities.Assortments;
 
 namespace PriceNegotiator.Domain.Repositories;
 

@@ -7,10 +7,10 @@ services:
       dockerfile: Dockerfile
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_URLS=http://+:5276
+      - ASPNETCORE_URLS=http://+:5268
       - ConnectionStrings__DefaultConnection=Server=sqldata;Database=PriceNegotiatorDatabase;User Id=SA;Password=Pass@word;Encrypt=false;TrustServerCertificate=true;Integrated Security=false;
     ports:
-      - "5276:5276"
+      - "5268:5268"
 
   sqldata:
     image: mcr.microsoft.com/mssql/server:2022-latest

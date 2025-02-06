@@ -1,7 +1,7 @@
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 
 WORKDIR /app
-EXPOSE 5276
+EXPOSE 5268
 
 COPY PriceNegotiator.sln .
 COPY src/PriceNegotiator.Api/PriceNegotiator.Api.csproj src/PriceNegotiator.Api/

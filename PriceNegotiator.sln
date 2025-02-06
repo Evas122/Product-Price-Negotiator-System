@@ -3,7 +3,37 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.12.35707.178 d17.12
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PriceNegotiator.Api", "src\PriceNegotiator.Api\PriceNegotiator.Api.csproj", "{A818C7ED-F73B-4184-801B-CEAE07724FBA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PriceNegotiator.Application", "src\PriceNegotiator.Application\PriceNegotiator.Application.csproj", "{388C8832-B7A7-47AD-86B3-D246D3975E54}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PriceNegotiator.Infrastructure", "src\PriceNegotiator.Infrastructure\PriceNegotiator.Infrastructure.csproj", "{55C214E7-CA8C-4FED-B030-D666169E479D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PriceNegotiator.Domain", "src\PriceNegotiator.Domain\PriceNegotiator.Domain.csproj", "{4FC0FB3D-A9A3-4E71-8FC2-2176AB2498E2}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A818C7ED-F73B-4184-801B-CEAE07724FBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A818C7ED-F73B-4184-801B-CEAE07724FBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A818C7ED-F73B-4184-801B-CEAE07724FBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A818C7ED-F73B-4184-801B-CEAE07724FBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{388C8832-B7A7-47AD-86B3-D246D3975E54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{388C8832-B7A7-47AD-86B3-D246D3975E54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{388C8832-B7A7-47AD-86B3-D246D3975E54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{388C8832-B7A7-47AD-86B3-D246D3975E54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55C214E7-CA8C-4FED-B030-D666169E479D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55C214E7-CA8C-4FED-B030-D666169E479D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55C214E7-CA8C-4FED-B030-D666169E479D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55C214E7-CA8C-4FED-B030-D666169E479D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4FC0FB3D-A9A3-4E71-8FC2-2176AB2498E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FC0FB3D-A9A3-4E71-8FC2-2176AB2498E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FC0FB3D-A9A3-4E71-8FC2-2176AB2498E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FC0FB3D-A9A3-4E71-8FC2-2176AB2498E2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection

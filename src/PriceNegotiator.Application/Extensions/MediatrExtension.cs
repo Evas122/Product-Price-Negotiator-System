@@ -5,7 +5,7 @@ namespace PriceNegotiator.Application.Extensions;
 
 public static class MediatrExtension
 {
-    public static void AddMediatrExtension(this IServiceCollection services)
+    public static void AddMediatr(this IServiceCollection services)
     {
         services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
     }

@@ -1,10 +1,11 @@
 ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using PriceNegotiator.Application.Common.Options;
 using PriceNegotiator.Application.Interfaces;
-using PriceNegotiator.Infrastructure.Repositories;
+using PriceNegotiator.Domain.Entities.Auth;
 using PriceNegotiator.Infrastructure.Services;
 using System.Text;
 
@@ -14,9 +15,9 @@ public static class AuthExtension
 {
     public static void AddAuth(this IServiceCollection services, IConfiguration configuration)
     {
+        services.Configure<JwtSettings>(configuration.GetSection("Jwt"));
         services.AddJwtAuthentication(configuration);
 
-        services.Configure<JwtSettings>(configuration.GetSection("Jwt"));
         services.AddAuthServices();
     }
 
@@ -32,7 +33,7 @@ public static class AuthExtension
                 ValidateIssuerSigningKey = true,
                 ValidIssuer = configuration["Jwt:Issuer"],
                 ValidAudience = configuration["Jwt:Audience"],
-                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Jwt:Key"]!)),
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Jwt:SecretKey"]!)),
                 ClockSkew = TimeSpan.Zero
             };
         });
@@ -40,7 +41,8 @@ public static class AuthExtension
 
     private static void AddAuthServices(this IServiceCollection services)
     {
-        services.AddScoped<IIdentityService, IdentityService>();
         services.AddScoped<IJwtService, JwtService>();
+        services.AddScoped<IIdentityService, IdentityService>();
+        services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>();
     }
 }

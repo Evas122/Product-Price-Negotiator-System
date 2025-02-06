@@ -6,7 +6,7 @@ public static class ServiceCollectionExtension
 {
     public static IServiceCollection AddApplicationExtensions(this IServiceCollection services)
     {
-        services.AddMediatrExtension();
+        services.AddMediatr();
         services.AddFluentValidation();
 
         return services;

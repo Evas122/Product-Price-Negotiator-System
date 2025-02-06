@@ -13,6 +13,7 @@ public static class ServiceCollectionExtension
         {
             options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
         });
+        services.AddAuth(configuration);
         services.AddDateTimeProvider();
         services.AddRepositories();
 

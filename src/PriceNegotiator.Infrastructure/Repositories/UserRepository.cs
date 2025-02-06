@@ -3,7 +3,7 @@ using PriceNegotiator.Domain.Entities.Auth;
 using PriceNegotiator.Domain.Repositories;
 using PriceNegotiator.Infrastructure.Data;
 
-namespace PriceNegotiator.Infrastructure.Repositories;
+namespace PriceNegotiator.Infrastructure.Services;
 
 public class UserRepository : IUserRepository
 {

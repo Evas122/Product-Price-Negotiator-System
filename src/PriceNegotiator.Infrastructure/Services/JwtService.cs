@@ -1,4 +1,5 @@
-﻿using Microsoft.IdentityModel.Tokens;
+﻿using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 using PriceNegotiator.Application.Common.Options;
 using PriceNegotiator.Application.Interfaces;
 using PriceNegotiator.Domain.Entities.Auth;
@@ -6,16 +7,16 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-namespace PriceNegotiator.Infrastructure.Repositories;
+namespace PriceNegotiator.Infrastructure.Services;
 
 public class JwtService : IJwtService
 {
     private readonly JwtSettings _jwtSettings;
     private readonly IDateTimeProvider _dateTimeProvider;
 
-    public JwtService(JwtSettings jwtSettings, IDateTimeProvider dateTimeProvider)
+    public JwtService(IOptions<JwtSettings> jwtSettings, IDateTimeProvider dateTimeProvider)
     {
-        _jwtSettings = jwtSettings;
+        _jwtSettings = jwtSettings.Value;
         _dateTimeProvider = dateTimeProvider;
     }
     public string GenerateJwtToken(User user)

@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using PriceNegotiator.Domain.Repositories;
-using PriceNegotiator.Infrastructure.Repositories;
+using PriceNegotiator.Infrastructure.Services;
 
 namespace PriceNegotiator.Infrastructure.Extensions;
 

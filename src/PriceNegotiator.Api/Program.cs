@@ -5,10 +5,9 @@ using PriceNegotiator.Infrastructure.Extensions;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
+builder.Services.AddInfrastructureExtensions(builder.Configuration);
 builder.Services.AddApiExtensions();
 builder.Services.AddApplicationExtensions();
-builder.Services.AddInfrastructureExtensions(builder.Configuration);
 
 builder.Services.AddRouting(options =>
 options.LowercaseUrls = true);

@@ -15,7 +15,7 @@ public class AuthController : BaseController
     }
 
     [HttpPost("sign-in")]
-    public async Task <IActionResult> SignIn(LoginCommand command)
+    public async Task <IActionResult> SignIn([FromBody] LoginCommand command)
     {
         var result = await _mediator.Send(command);
 
@@ -23,7 +23,7 @@ public class AuthController : BaseController
     }
 
     [HttpPost("sign-up")]
-    public async Task<IActionResult> SignUp(RegisterCommand command)
+    public async Task<IActionResult> SignUp([FromBody] RegisterCommand command)
     {
         var result = await _mediator.Send(command);
 

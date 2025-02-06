@@ -1,4 +1,4 @@
-﻿using PriceNegotiator.Application.Dtos;
+﻿using PriceNegotiator.Application.Dtos.Auth;
 using PriceNegotiator.Application.Interfaces;
 using PriceNegotiator.Application.Interfaces.Messaging;
 using PriceNegotiator.Domain.Entities.Auth;
@@ -9,14 +9,14 @@ namespace PriceNegotiator.Application.Commands.Register;
 
 public record RegisterCommand(string Email, string Password, string FirstName, string LastName) : ICommand<AuthResultDto>;
 
-public class RegisterCommandHandler : ICommandHandler<RegisterCommand, AuthResultDto>
+public class RegisterHandler : ICommandHandler<RegisterCommand, AuthResultDto>
 {
     private readonly IUserRepository _userRepository;
     private readonly IIdentityService _identityService;
     private readonly IJwtService _jwtService;
     private readonly IDateTimeProvider _dateTimeProvider;
 
-    public RegisterCommandHandler(IUserRepository userRepository, IIdentityService identityService, IJwtService jwtService, IDateTimeProvider dateTimeProvider)
+    public RegisterHandler(IUserRepository userRepository, IIdentityService identityService, IJwtService jwtService, IDateTimeProvider dateTimeProvider)
     {
         _userRepository = userRepository;
         _identityService = identityService;
@@ -42,7 +42,7 @@ public class RegisterCommandHandler : ICommandHandler<RegisterCommand, AuthResul
         };
         var hashedPassword = await _identityService.HashPassword(user, command.Password);
         user.PasswordHash = hashedPassword;
-        await _userRepository.AddAsync(user);
+        await _userRepository.AddUserAsync(user);
         var token = _jwtService.GenerateJwtToken(user);
 
         return new AuthResultDto(token);

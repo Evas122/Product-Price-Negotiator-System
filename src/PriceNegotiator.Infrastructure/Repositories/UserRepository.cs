@@ -14,13 +14,13 @@ public class UserRepository : IUserRepository
         _dbContext = dbContext;
     }
 
-    public async Task AddAsync(User user)
+    public async Task AddUserAsync(User user)
     {
         _dbContext.Users.Add(user);
         await _dbContext.SaveChangesAsync();
     }
 
-    public async Task<User?> GetByEmailAsync(string email)
+    public async Task<User?> GetUserByEmailAsync(string email)
     {
         return await _dbContext.Users.FirstOrDefaultAsync(User => User.Email == email);
     }

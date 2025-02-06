@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using PriceNegotiator.Domain.Entities.Assortment;
+using PriceNegotiator.Domain.Entities.Assortments;
 using PriceNegotiator.Domain.Repositories;
 using PriceNegotiator.Infrastructure.Data;
 

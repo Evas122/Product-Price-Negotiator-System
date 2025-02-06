@@ -24,9 +24,4 @@ public class UserRepository : IUserRepository
     {
         return await _dbContext.Users.FirstOrDefaultAsync(User => User.Email == email);
     }
-
-    public async Task<bool> IsEmailExistAsync(string email)
-    {
-        return await _dbContext.Users.AnyAsync(User => User.Email == email);
-    }
 }

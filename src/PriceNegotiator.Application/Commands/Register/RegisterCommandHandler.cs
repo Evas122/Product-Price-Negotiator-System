@@ -14,12 +14,14 @@ public class RegisterCommandHandler : ICommandHandler<RegisterCommand, AuthResul
     private readonly IUserRepository _userRepository;
     private readonly IIdentityService _identityService;
     private readonly IJwtService _jwtService;
+    private readonly IDateTimeProvider _dateTimeProvider;
 
-    public RegisterCommandHandler(IUserRepository userRepository, IIdentityService identityService, IJwtService jwtService)
+    public RegisterCommandHandler(IUserRepository userRepository, IIdentityService identityService, IJwtService jwtService, IDateTimeProvider dateTimeProvider)
     {
         _userRepository = userRepository;
         _identityService = identityService;
         _jwtService = jwtService;
+        _dateTimeProvider = dateTimeProvider;
     }
 
     public async Task<AuthResultDto> Handle(RegisterCommand command, CancellationToken cancellationToken)
@@ -34,7 +36,9 @@ public class RegisterCommandHandler : ICommandHandler<RegisterCommand, AuthResul
             Email = command.Email,
             FirstName = command.FirstName,
             LastName = command.LastName,
-            Role = UserRole.Employee
+            Role = UserRole.Employee,
+            CreatedAt = _dateTimeProvider.UtcNow,
+            UpdatedAt = _dateTimeProvider.UtcNow,
         };
         var hashedPassword = await _identityService.HashPassword(user, command.Password);
         user.PasswordHash = hashedPassword;

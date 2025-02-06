@@ -3,9 +3,11 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
+using PriceNegotiator.Application.Common.Constants;
 using PriceNegotiator.Application.Common.Options;
 using PriceNegotiator.Application.Interfaces;
 using PriceNegotiator.Domain.Entities.Auth;
+using PriceNegotiator.Domain.Enums;
 using PriceNegotiator.Infrastructure.Services;
 using System.Text;
 
@@ -17,6 +19,7 @@ public static class AuthExtension
     {
         services.Configure<JwtSettings>(configuration.GetSection("Jwt"));
         services.AddJwtAuthentication(configuration);
+        services.AddAuthorizationPolicies();
 
         services.AddAuthServices();
     }
@@ -36,6 +39,15 @@ public static class AuthExtension
                 IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Jwt:SecretKey"]!)),
                 ClockSkew = TimeSpan.Zero
             };
+        });
+    }
+
+    private static void AddAuthorizationPolicies(this IServiceCollection services)
+    {
+        services.AddAuthorization(options =>
+        {
+            options.AddPolicy(AuthorizationPolicies.EmployeePolicy, policy =>
+            policy.RequireRole(UserRole.Employee.ToString()));
         });
     }
 

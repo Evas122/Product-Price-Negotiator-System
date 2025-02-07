@@ -21,7 +21,7 @@ public class LoginHandler : ICommandHandler<LoginCommand, AuthResultDto>
 
     public async Task<AuthResultDto> Handle(LoginCommand command, CancellationToken cancellationToken)
     {
-        var user = await _userRepository.GetUserByEmailAsync(command.Email) ?? throw new ApplicationException("User not found");
+        var user = await _userRepository.GetByEmailAsync(command.Email) ?? throw new ApplicationException("User not found");
 
         var passwordVerificationResult = await _identityService.VerifyPassword(user, command.Password, user.PasswordHash);
         if (!passwordVerificationResult)

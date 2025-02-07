@@ -29,7 +29,7 @@ public class CreateProductHandler : ICommandHandler<CreateProductCommand, Unit>
             CreatedAt = _dateTimeProvider.UtcNow,
             UpdatedAt = _dateTimeProvider.UtcNow,
         };
-        await _productRepository.AddProductAsync(product);
+        await _productRepository.AddAsync(product);
 
         return Unit.Value;
     }

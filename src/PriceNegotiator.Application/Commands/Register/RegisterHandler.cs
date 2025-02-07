@@ -42,7 +42,7 @@ public class RegisterHandler : ICommandHandler<RegisterCommand, AuthResultDto>
         };
         var hashedPassword = await _identityService.HashPassword(user, command.Password);
         user.PasswordHash = hashedPassword;
-        await _userRepository.AddUserAsync(user);
+        await _userRepository.AddAsync(user);
         var token = _jwtService.GenerateJwtToken(user);
 
         return new AuthResultDto(token);

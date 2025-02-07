@@ -4,7 +4,7 @@ namespace PriceNegotiator.Domain.Repositories;
 
 public interface IProductRepository
 {
-    Task AddProductAsync(Product product);
-    Task<Product?> GetProductByIdAsync(Guid productId);
-    Task<(IEnumerable<Product> Items, int TotalItems)> GetPagedProducts(int pageNumber, int pageSize);
+    Task AddAsync(Product product);
+    Task<Product?> GetByIdAsync(Guid productId);
+    Task<(IEnumerable<Product> Items, int TotalItems)> GetPagedProductsAsync(int pageNumber, int pageSize);
 }

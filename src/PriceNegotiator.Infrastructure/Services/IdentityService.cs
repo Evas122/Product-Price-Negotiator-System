@@ -18,8 +18,7 @@ public class IdentityService : IIdentityService
 
     public async Task<bool> IsEmailUniqueAsync(string email)
     {
-        var existingUser = await _userRepository.GetByEmailAsync(email);
-        return existingUser is null;
+       return await _userRepository.ExistAsync(email);
     }
 
     public Task<string> HashPassword(User user, string password)

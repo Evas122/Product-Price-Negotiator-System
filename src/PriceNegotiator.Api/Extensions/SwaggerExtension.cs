@@ -1,4 +1,6 @@
-﻿using Microsoft.OpenApi.Models;
+﻿using Microsoft.OpenApi.Any;
+using Microsoft.OpenApi.Models;
+using PriceNegotiator.Domain.Enums;
 
 namespace PriceNegotiator.Api.Extensions;
 
@@ -33,6 +35,15 @@ public static class SwaggerExtension
                 }
             });
             c.EnableAnnotations();
+            c.UseInlineDefinitionsForEnums();
+
+            c.MapType<EmployeeAction>(() => new OpenApiSchema
+            {
+                Type = "string",
+                Enum = Enum.GetNames(typeof(EmployeeAction))
+                               .Select(name => new OpenApiString(name))
+                               .ToList<IOpenApiAny>()
+            });
         });
         services.AddSwaggerGenNewtonsoftSupport();
         return services;

@@ -16,6 +16,7 @@ public static class ServiceCollectionExtension
         services.AddAuth(configuration);
         services.AddDateTimeProvider();
         services.AddRepositories();
+        services.AddNegotiations();
 
         return services;
     }

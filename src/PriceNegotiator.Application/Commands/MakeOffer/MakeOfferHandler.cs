@@ -7,23 +7,34 @@ using PriceNegotiator.Domain.Repositories;
 
 namespace PriceNegotiator.Application.Commands.MakeOffer;
 
-public record MakeNegotiationCommand(string ClientEmail, Guid ProductId, decimal ProposedPrice) : ICommand<Unit>;
+public record MakeOfferCommand(string ClientEmail, Guid ProductId, decimal ProposedPrice) : ICommand<Unit>;
 
-public class MakeOfferHandler : ICommandHandler<MakeNegotiationCommand, Unit>
+public class MakeOfferHandler : ICommandHandler<MakeOfferCommand, Unit>
 {
     private readonly INegotiationRepository _negotiationRepository;
     private readonly INegotiationValidationService _negotiationValidationService;
     private readonly IDateTimeProvider _dateTimeProvider;
+    private readonly IProductRepository _productRepository;
 
-    public MakeOfferHandler(INegotiationRepository negotiationRepository, INegotiationValidationService negotiationValidationService, IDateTimeProvider dateTimeProvider)
+    public MakeOfferHandler(INegotiationRepository negotiationRepository,
+        INegotiationValidationService negotiationValidationService,
+        IDateTimeProvider dateTimeProvider,
+        IProductRepository productRepository)
     {
         _negotiationRepository = negotiationRepository;
         _negotiationValidationService = negotiationValidationService;
         _dateTimeProvider = dateTimeProvider;
+        _productRepository = productRepository;
     }
 
-    public async Task<Unit> Handle(MakeNegotiationCommand command, CancellationToken cancellationToken)
+    public async Task<Unit> Handle(MakeOfferCommand command, CancellationToken cancellationToken)
     {
+        var productExists = await _productRepository.ExistAsync(command.ProductId);
+        if (!productExists)
+        {
+            throw new ApplicationException($"Product with ID {command.ProductId} does not exist.");
+        }
+
         var existingNegotiation = await _negotiationRepository.GetByClientEmailandProductIdAsync(command.ClientEmail, command.ProductId);
 
         if (existingNegotiation != null)
@@ -61,7 +72,7 @@ public class MakeOfferHandler : ICommandHandler<MakeNegotiationCommand, Unit>
         };
     }
 
-    private Negotiation CreateNewNegotiation(MakeNegotiationCommand command)
+    private Negotiation CreateNewNegotiation(MakeOfferCommand command)
     {
         return new Negotiation
         {

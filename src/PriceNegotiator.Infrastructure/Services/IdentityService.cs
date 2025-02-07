@@ -18,7 +18,7 @@ public class IdentityService : IIdentityService
 
     public async Task<bool> IsEmailUniqueAsync(string email)
     {
-        var existingUser = await _userRepository.GetUserByEmailAsync(email);
+        var existingUser = await _userRepository.GetByEmailAsync(email);
         return existingUser is null;
     }
 

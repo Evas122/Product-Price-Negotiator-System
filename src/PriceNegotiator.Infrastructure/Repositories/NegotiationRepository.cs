@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PriceNegotiator.Domain.Entities.Negotiations;
+using PriceNegotiator.Domain.Enums;
 using PriceNegotiator.Domain.Repositories;
 using PriceNegotiator.Infrastructure.Data;
 
@@ -33,5 +34,17 @@ public class NegotiationRepository : INegotiationRepository
     {
         _dbContext.Negotiations.Update(negotiation);
         await _dbContext.SaveChangesAsync();
+    }
+
+    public async Task UpdateStatusAsync(Guid negotiationId, NegotiationStatus newStatus)
+    {
+        var negotiation = await _dbContext.Negotiations.FindAsync(negotiationId);
+
+        if (negotiation != null)
+        {
+            negotiation.Status = newStatus;
+            _dbContext.Negotiations.Update(negotiation);
+            await _dbContext.SaveChangesAsync();
+        }
     }
 }

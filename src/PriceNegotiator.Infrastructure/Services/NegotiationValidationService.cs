@@ -1,16 +1,19 @@
 ﻿using PriceNegotiator.Application.Interfaces;
 using PriceNegotiator.Domain.Entities.Negotiations;
 using PriceNegotiator.Domain.Enums;
+using PriceNegotiator.Domain.Repositories;
 
 namespace PriceNegotiator.Infrastructure.Services;
 
 public class NegotiationValidationService : INegotiationValidationService
 {
     private readonly IDateTimeProvider _dateTimeProvider;
+    private readonly INegotiationRepository _negotiatorRepository;
 
-    public NegotiationValidationService(IDateTimeProvider dateTimeProvider)
+    public NegotiationValidationService(IDateTimeProvider dateTimeProvider, INegotiationRepository negotiationRepository)
     {
         _dateTimeProvider = dateTimeProvider;
+        _negotiatorRepository = negotiationRepository;
     }
 
     public Task ValidateNewAttemptAsync(Negotiation negotiation)
@@ -42,9 +45,9 @@ public class NegotiationValidationService : INegotiationValidationService
 
     private void ValidateAttemptLimit(Negotiation negotiation)
     {
-        if (negotiation.NegotiationAttempts.Count >= 3)
+        if (negotiation.AttemptCount >= 3)
         {
-            negotiation.Status = NegotiationStatus.AttemptsExceeded;
+            _negotiatorRepository.UpdateStatusAsync(negotiation.Id, NegotiationStatus.AttemptsExceeded);
             throw new ApplicationException("Limit of negotiation attempts has been reached.");
         }
     }
@@ -60,7 +63,7 @@ public class NegotiationValidationService : INegotiationValidationService
         if (_dateTimeProvider.UtcNow < negotiation.LastRejectionAt.Value.AddDays(7))
             return;
 
-        negotiation.Status = NegotiationStatus.Cancelled;
+        _negotiatorRepository.UpdateStatusAsync(negotiation.Id, NegotiationStatus.Cancelled);
         throw new ApplicationException("The 7-day period for resubmitting an offer has expired.");
     }
 }

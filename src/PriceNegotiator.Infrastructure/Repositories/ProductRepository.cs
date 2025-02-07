@@ -13,14 +13,14 @@ public class ProductRepository : IProductRepository
     {
         _dbContext = dbContext;
     }
-    public async Task AddProductAsync(Product product)
+    public async Task AddAsync(Product product)
     {
         _dbContext.Products.Add(product);
         await _dbContext.SaveChangesAsync();
 
     }
 
-    public async Task<(IEnumerable<Product> Items, int TotalItems)> GetPagedProducts(int pageNumber, int pageSize)
+    public async Task<(IEnumerable<Product> Items, int TotalItems)> GetPagedProductsAsync(int pageNumber, int pageSize)
     {
         var query = _dbContext.Products
             .OrderByDescending(t => t.CreatedAt);
@@ -34,7 +34,7 @@ public class ProductRepository : IProductRepository
         return (items, totalItems);
     }
 
-    public async Task<Product?> GetProductByIdAsync(Guid productId)
+    public async Task<Product?> GetByIdAsync(Guid productId)
     {
         return await _dbContext.Products.FirstOrDefaultAsync(x => x.Id == productId);
     }

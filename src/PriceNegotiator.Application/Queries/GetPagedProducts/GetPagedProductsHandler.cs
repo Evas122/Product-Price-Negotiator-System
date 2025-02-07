@@ -22,7 +22,7 @@ public class GetPagedProductsHandler : IQueryHandler<GetPagedProductsQuery,Paged
         var page = query.Page ?? 1;
         var pageSize = query.PageSize ?? 10;
 
-        var pagedProducts = await _productRepository.GetPagedProducts(page, pageSize);
+        var pagedProducts = await _productRepository.GetPagedProductsAsync(page, pageSize);
 
         return pagedProducts.ToPagedDto(page, pageSize);
     }

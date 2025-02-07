@@ -1,4 +1,5 @@
-﻿using PriceNegotiator.Domain.Entities.Negotiations;
+﻿using Microsoft.EntityFrameworkCore;
+using PriceNegotiator.Domain.Entities.Negotiations;
 using PriceNegotiator.Domain.Repositories;
 using PriceNegotiator.Infrastructure.Data;
 
@@ -14,21 +15,23 @@ public class NegotiationRepository : INegotiationRepository
     }
     public async Task AddAsync(Negotiation negotiation)
     {
-        throw new NotImplementedException();
+        _dbContext.Negotiations.Add(negotiation);
+        await _dbContext.SaveChangesAsync();
     }
 
-    public Task<bool> ExistAsync(Guid negotiationId)
+    public async Task<bool> ExistAsync(Guid negotiationId)
     {
-        throw new NotImplementedException();
+        return await _dbContext.Negotiations.AnyAsync(x => x.Id == negotiationId);
     }
 
-    public Task<Negotiation> GetByClientEmailandProductIdAsync(string clientEmail, Guid productId)
+    public async Task<Negotiation?> GetByClientEmailandProductIdAsync(string clientEmail, Guid productId)
     {
-        throw new NotImplementedException();
+        return await _dbContext.Negotiations.FirstOrDefaultAsync(x => x.ClientEmail == clientEmail && x.ProductId == productId);
     }
 
-    public Task UpdateAsync(Negotiation negotiation)
+    public async Task UpdateAsync(Negotiation negotiation)
     {
-        throw new NotImplementedException();
+        _dbContext.Negotiations.Update(negotiation);
+        await _dbContext.SaveChangesAsync();
     }
 }

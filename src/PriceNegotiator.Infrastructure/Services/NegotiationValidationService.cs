@@ -32,9 +32,6 @@ public class NegotiationValidationService : INegotiationValidationService
             case NegotiationStatus.Cancelled:
                 throw new ApplicationException("Negotiations have been canceled due to time limit 7 days. You cannot make another offer.");
 
-            case NegotiationStatus.AttemptsExceeded:
-                throw new ApplicationException("Limit of negotiation attempts has been reached.");
-
             case NegotiationStatus.Accepted:
                 throw new ApplicationException("Negotiations have been finished. Offer has been accepted.");
 
@@ -47,7 +44,6 @@ public class NegotiationValidationService : INegotiationValidationService
     {
         if (negotiation.AttemptCount >= 3)
         {
-            _negotiatorRepository.UpdateStatusAsync(negotiation.Id, NegotiationStatus.AttemptsExceeded);
             throw new ApplicationException("Limit of negotiation attempts has been reached.");
         }
     }

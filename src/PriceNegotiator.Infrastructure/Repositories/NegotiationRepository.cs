@@ -25,6 +25,11 @@ public class NegotiationRepository : INegotiationRepository
         return await _dbContext.Negotiations.AnyAsync(x => x.Id == negotiationId);
     }
 
+    public async Task<Negotiation?> GetByIdAsync(Guid negotiationId)
+    {
+        return await _dbContext.Negotiations.FindAsync(negotiationId);
+    }
+
     public async Task<Negotiation?> GetByClientEmailandProductIdAsync(string clientEmail, Guid productId)
     {
         return await _dbContext.Negotiations.FirstOrDefaultAsync(x => x.ClientEmail == clientEmail && x.ProductId == productId);

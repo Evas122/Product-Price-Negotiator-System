@@ -5,6 +5,5 @@ public enum NegotiationStatus
     WaitingForEmployee,
     Rejected,
     Accepted,
-    Cancelled,
-    AttemptsExceeded
+    Cancelled
 }

@@ -10,7 +10,7 @@ public static class ServiceCollectionExtension
                 options.JsonSerializerOptions.Converters.Add(new System.Text.Json.Serialization.JsonStringEnumConverter());
             });
         services.AddEndpointsApiExplorer();
-        services.AddSwaggerDocExtension();
+        services.AddSwaggerDoc();
         return services;
     }
 }

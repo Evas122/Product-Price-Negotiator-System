@@ -1,4 +1,5 @@
-﻿using PriceNegotiator.Application.Interfaces;
+﻿using PriceNegotiator.Application.Common.Exceptions.Base;
+using PriceNegotiator.Application.Interfaces;
 using PriceNegotiator.Domain.Entities.Negotiations;
 using PriceNegotiator.Domain.Enums;
 using PriceNegotiator.Domain.Repositories;
@@ -30,13 +31,13 @@ public class NegotiationValidationService : INegotiationValidationService
         switch (negotiation.Status)
         {
             case NegotiationStatus.Cancelled:
-                throw new ApplicationException("Negotiations have been canceled due to time limit 7 days. You cannot make another offer.");
+                throw new BadRequestException("Negotiations have been canceled due to time limit 7 days. You cannot make another offer.");
 
             case NegotiationStatus.Accepted:
-                throw new ApplicationException("Negotiations have been finished. Offer has been accepted.");
+                throw new BadRequestException("Negotiations have been finished. Offer has been accepted.");
 
             case NegotiationStatus.WaitingForEmployee:
-                throw new ApplicationException("The offer is pending confirmation by an employee.");
+                throw new BadRequestException("The offer is pending confirmation by an employee.");
         }
     }
 
@@ -44,7 +45,7 @@ public class NegotiationValidationService : INegotiationValidationService
     {
         if (negotiation.AttemptCount >= 3)
         {
-            throw new ApplicationException("Limit of negotiation attempts has been reached.");
+            throw new BadRequestException("Limit of negotiation attempts has been reached.");
         }
     }
 
@@ -60,6 +61,6 @@ public class NegotiationValidationService : INegotiationValidationService
             return;
 
         _negotiatorRepository.UpdateStatusAsync(negotiation.Id, NegotiationStatus.Cancelled);
-        throw new ApplicationException("The 7-day period for resubmitting an offer has expired.");
+        throw new BadRequestException("The 7-day period for resubmitting an offer has expired.");
     }
 }

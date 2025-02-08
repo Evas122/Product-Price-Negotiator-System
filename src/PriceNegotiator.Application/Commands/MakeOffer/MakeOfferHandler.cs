@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using PriceNegotiator.Application.Common.Exceptions.Base;
 using PriceNegotiator.Application.Interfaces;
 using PriceNegotiator.Application.Interfaces.Messaging;
 using PriceNegotiator.Domain.Entities.Negotiations;
@@ -29,10 +30,10 @@ public class MakeOfferHandler : ICommandHandler<MakeOfferCommand, Unit>
 
     public async Task<Unit> Handle(MakeOfferCommand command, CancellationToken cancellationToken)
     {
-        var productExists = await _productRepository.ExistAsync(command.ProductId);
-        if (!productExists)
+        var product = await _productRepository.ExistAsync(command.ProductId);
+        if (!product)
         {
-            throw new ApplicationException($"Product with ID {command.ProductId} does not exist.");
+            throw new NotFoundException(nameof(product), command.ProductId.ToString());
         }
 
         var existingNegotiation = await _negotiationRepository.GetByClientEmailandProductIdAsync(command.ClientEmail, command.ProductId);

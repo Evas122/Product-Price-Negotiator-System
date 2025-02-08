@@ -1,4 +1,5 @@
-﻿using PriceNegotiator.Application.Dtos.Auth;
+﻿using PriceNegotiator.Application.Common.Exceptions.Base;
+using PriceNegotiator.Application.Dtos.Auth;
 using PriceNegotiator.Application.Interfaces;
 using PriceNegotiator.Application.Interfaces.Messaging;
 using PriceNegotiator.Domain.Repositories;
@@ -21,12 +22,16 @@ public class LoginHandler : ICommandHandler<LoginCommand, AuthResultDto>
 
     public async Task<AuthResultDto> Handle(LoginCommand command, CancellationToken cancellationToken)
     {
-        var user = await _userRepository.GetByEmailAsync(command.Email) ?? throw new ApplicationException("User not found");
+        var user = await _userRepository.GetByEmailAsync(command.Email);
+        if (user == null)
+        {
+            throw new NotFoundException(nameof(user), command.Email);
+        }
 
         var passwordVerificationResult = await _identityService.VerifyPassword(user, command.Password, user.PasswordHash);
         if (!passwordVerificationResult)
         {
-            throw new ApplicationException("Invalid password");
+            throw new InvalidCredentialsException();
         }
 
         var token = _jwtService.GenerateJwtToken(user);

@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using PriceNegotiator.Application.Common.Exceptions.Base;
 using PriceNegotiator.Application.Interfaces;
 using PriceNegotiator.Application.Interfaces.Messaging;
 using PriceNegotiator.Domain.Enums;
@@ -25,12 +26,12 @@ public class ProcessOfferHandler : ICommandHandler<ProcessOfferCommand, Unit>
 
         if (negotiation == null)
         {
-            throw new ApplicationException($"Negotiation with ID {command.NegotiationId} not found.");
+            throw new NotFoundException(nameof(negotiation), command.NegotiationId.ToString());
         }
 
         if (negotiation.Status != NegotiationStatus.WaitingForEmployee)
         {
-            throw new ApplicationException("Only negotiations waiting for employee confirmation can be processed.");
+            throw new BadRequestException("Only negotiations waiting for employee confirmation can be processed.");
         }
 
         switch (command.Action)
@@ -46,7 +47,7 @@ public class ProcessOfferHandler : ICommandHandler<ProcessOfferCommand, Unit>
                 break;
 
             default:
-                throw new ApplicationException("Invalid employee action specified.");
+                throw new BadRequestException("Invalid employee action specified.");
         }
 
         await _negotiationRepository.UpdateAsync(negotiation);

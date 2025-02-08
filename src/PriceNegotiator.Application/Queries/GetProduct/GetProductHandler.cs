@@ -1,4 +1,5 @@
-﻿using PriceNegotiator.Application.Dtos.Assortment;
+﻿using PriceNegotiator.Application.Common.Exceptions.Base;
+using PriceNegotiator.Application.Dtos.Assortment;
 using PriceNegotiator.Application.Extensions.Mappings.Products;
 using PriceNegotiator.Application.Interfaces.Messaging;
 using PriceNegotiator.Domain.Repositories;
@@ -18,8 +19,11 @@ public class GetProductHandler : IQueryHandler<GetProductQuery, ProductDto>
 
     public async Task<ProductDto> Handle(GetProductQuery query, CancellationToken cancellationToken)
     {
-        var product = await _productRepository.GetByIdAsync(query.Id) ?? throw new ApplicationException("product not found");
-
+        var product = await _productRepository.GetByIdAsync(query.Id);
+        if (product == null)
+        {
+            throw new NotFoundException(nameof(product), query.Id.ToString());
+        }
         return product.ToDto();
     }
 }

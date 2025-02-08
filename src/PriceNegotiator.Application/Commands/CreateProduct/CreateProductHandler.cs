@@ -33,5 +33,4 @@ public class CreateProductHandler : ICommandHandler<CreateProductCommand, Unit>
 
         return Unit.Value;
     }
-
 }

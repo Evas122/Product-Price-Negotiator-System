@@ -1,6 +1,6 @@
 ﻿using FluentValidation.Results;
 
-namespace PriceNegotiator.Application.Common.Exceptions;
+namespace PriceNegotiator.Application.Common.Exceptions.Base;
 
 public class ValidationException : Exception
 {

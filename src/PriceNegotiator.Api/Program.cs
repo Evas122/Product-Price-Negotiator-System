@@ -27,4 +27,6 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+await app.EnsureDatabaseMigratedAsync();
+
 app.Run();

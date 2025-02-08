@@ -18,6 +18,7 @@ public static class ServiceCollectionExtension
         services.AddRepositories();
         services.AddNegotiations();
         services.AddExceptionHandlers();
+        services.AddDatabaseMigrator();
 
         return services;
     }

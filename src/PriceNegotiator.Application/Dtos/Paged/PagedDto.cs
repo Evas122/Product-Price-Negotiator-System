@@ -13,7 +13,13 @@ public class PagedDto<T>
         Items = items;
         TotalPages = (int)Math.Ceiling(totalItems / (double)pageSize);
         TotalItemsCount = totalItems;
-        ItemsFrom = pageSize * (pageNumber - 1) + 1;
-        ItemsTo = ItemsFrom + pageSize - 1;
+
+        if (totalItems != 0)
+        {
+            ItemsFrom = pageSize * (pageNumber - 1) + 1;
+            ItemsTo = Math.Min(ItemsFrom + pageSize - 1, totalItems);
+        }
+        ItemsFrom = 0;
+        ItemsTo = 0;
     }
 }

@@ -28,7 +28,7 @@ public class RegisterHandler : ICommandHandler<RegisterCommand, AuthResultDto>
     public async Task<AuthResultDto> Handle(RegisterCommand command, CancellationToken cancellationToken)
     {
         var isEmailUnique = await _identityService.IsEmailUniqueAsync(command.Email);
-        if (!isEmailUnique)
+        if (isEmailUnique)
         {
             var user = new User
             {

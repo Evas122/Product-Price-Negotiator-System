@@ -44,9 +44,10 @@ public class ProductsController : BaseController
     }
 
     [HttpGet("{id}")]
-    [SwaggerOperation(Summary = "Get paged list of products.")]
+    [SwaggerOperation(Summary = "Get single product.")]
     [ProducesResponseType(typeof(ProductDto), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(typeof(ValidationProblemDetails), StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> GetProductAsync([FromRoute] Guid id)
     {
         var query = new GetProductQuery(id);

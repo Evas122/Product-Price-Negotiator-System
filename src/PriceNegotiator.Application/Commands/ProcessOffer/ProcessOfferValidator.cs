@@ -11,7 +11,6 @@ public class ProcessOfferValidator : AbstractValidator<ProcessOfferCommand>
             .WithMessage("Negotiation Id cannot be empty");
 
         RuleFor(x => x.Action)
-            .NotEmpty()
             .IsInEnum()
             .WithMessage("Action should be correct enum");
     }

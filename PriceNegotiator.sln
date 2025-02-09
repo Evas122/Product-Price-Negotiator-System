@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35707.178 d17.12
+VisualStudioVersion = 17.12.35707.178
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PriceNegotiator.Api", "src\PriceNegotiator.Api\PriceNegotiator.Api.csproj", "{A818C7ED-F73B-4184-801B-CEAE07724FBA}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PriceNegotiator.Infrastructure", "src\PriceNegotiator.Infrastructure\PriceNegotiator.Infrastructure.csproj", "{55C214E7-CA8C-4FED-B030-D666169E479D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PriceNegotiator.Domain", "src\PriceNegotiator.Domain\PriceNegotiator.Domain.csproj", "{4FC0FB3D-A9A3-4E71-8FC2-2176AB2498E2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PriceNegotiator.Application.UnitTests", "tests\PriceNegotiator.Application.UnitTests\PriceNegotiator.Application.UnitTests.csproj", "{24690899-A271-47C7-9B6E-34C4D0F4D4F0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{4FC0FB3D-A9A3-4E71-8FC2-2176AB2498E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4FC0FB3D-A9A3-4E71-8FC2-2176AB2498E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4FC0FB3D-A9A3-4E71-8FC2-2176AB2498E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24690899-A271-47C7-9B6E-34C4D0F4D4F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24690899-A271-47C7-9B6E-34C4D0F4D4F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24690899-A271-47C7-9B6E-34C4D0F4D4F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24690899-A271-47C7-9B6E-34C4D0F4D4F0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

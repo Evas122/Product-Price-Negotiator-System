@@ -48,8 +48,6 @@ public static class HangfireExtensions
                 TimeZone = TimeZoneInfo.Utc,   
             }
         );
-        app.UseHangfireDashboard();
-
         return app;
     }
 }

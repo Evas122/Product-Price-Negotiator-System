@@ -1,10 +1,10 @@
 ﻿using Moq;
-using PriceNegotiator.Application.Common.Exceptions.Base;
-using PriceNegotiator.Application.Queries.GetProduct;
+using PriceNegotiator.Domain.Common.Exceptions.Base;
+using PriceNegotiator.Domain.Queries.GetProduct;
 using PriceNegotiator.Domain.Entities.Assortments;
 using PriceNegotiator.Domain.Repositories;
 
-namespace PriceNegotiator.Application.UnitTests.QueriesTests;
+namespace PriceNegotiator.Domain.UnitTests.QueriesTests;
 
 public class GetProductHandlerTests
 {

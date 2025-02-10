@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace PriceNegotiator.Application.Commands.Login;
+namespace PriceNegotiator.Domain.Commands.Login;
 
 public class LoginValidator : AbstractValidator<LoginCommand>
 {

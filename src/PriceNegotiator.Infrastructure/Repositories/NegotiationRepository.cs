@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using MediatR;
+using Microsoft.EntityFrameworkCore;
+using PriceNegotiator.Domain.Interfaces;
 using PriceNegotiator.Domain.Entities.Negotiations;
 using PriceNegotiator.Domain.Enums;
 using PriceNegotiator.Domain.Repositories;
@@ -9,10 +11,12 @@ namespace PriceNegotiator.Infrastructure.Repositories;
 public class NegotiationRepository : INegotiationRepository
 {
     private readonly AppDbContext _dbContext;
+    private readonly IDomainEventDispatcher _eventDispatcher;
 
-    public NegotiationRepository(AppDbContext dbContext)
+    public NegotiationRepository(AppDbContext dbContext, IMediator mediator, IDomainEventDispatcher eventDispatcher)
     {
         _dbContext = dbContext;
+        _eventDispatcher = eventDispatcher;
     }
     public async Task AddAsync(Negotiation negotiation)
     {
@@ -63,6 +67,18 @@ public class NegotiationRepository : INegotiationRepository
     public async Task UpdateRangeAsync(IEnumerable<Negotiation> negotiations)
     {
         _dbContext.Negotiations.UpdateRange(negotiations);
+
+        var domainEvents = negotiations
+            .SelectMany(n => n.DomainEvents)
+            .ToList();
+
         await _dbContext.SaveChangesAsync();
+
+        await _eventDispatcher.DispatchEventsAsync(domainEvents);
+
+        foreach (var negotiation in negotiations)
+        {
+            negotiation.ClearDomainEvents();
+        }
     }
 }

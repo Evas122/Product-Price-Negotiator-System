@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using PriceNegotiator.Application.Common.Behaviors;
+using PriceNegotiator.Domain.Common.Behaviors;
 using System.Reflection;
 
-namespace PriceNegotiator.Application.Extensions;
+namespace PriceNegotiator.Domain.Extensions;
 
 public static class MediatrExtension
 {

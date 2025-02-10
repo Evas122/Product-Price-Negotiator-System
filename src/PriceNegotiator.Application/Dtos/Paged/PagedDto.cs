@@ -1,4 +1,4 @@
-﻿namespace PriceNegotiator.Application.Dtos.Paged;
+﻿namespace PriceNegotiator.Domain.Dtos.Paged;
 
 public class PagedDto<T>
 {

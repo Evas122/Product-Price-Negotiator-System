@@ -1,6 +1,6 @@
-﻿using PriceNegotiator.Application.Commands.Login;
+﻿using PriceNegotiator.Domain.Commands.Login;
 
-namespace PriceNegotiator.Application.UnitTests.ValidatorsTests;
+namespace PriceNegotiator.Domain.UnitTests.ValidatorsTests;
 
 public class LoginValidatorTests
 {

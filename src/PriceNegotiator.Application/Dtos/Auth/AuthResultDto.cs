@@ -1,3 +1,3 @@
-﻿namespace PriceNegotiator.Application.Dtos.Auth;
+﻿namespace PriceNegotiator.Domain.Dtos.Auth;
 
 public record AuthResultDto(string Token);

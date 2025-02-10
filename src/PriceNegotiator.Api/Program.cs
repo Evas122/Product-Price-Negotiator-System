@@ -1,5 +1,5 @@
 using PriceNegotiator.Api.Extensions;
-using PriceNegotiator.Application.Extensions;
+using PriceNegotiator.Domain.Extensions;
 using PriceNegotiator.Infrastructure.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);

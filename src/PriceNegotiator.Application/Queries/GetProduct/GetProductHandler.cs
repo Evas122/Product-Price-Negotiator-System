@@ -1,10 +1,10 @@
-﻿using PriceNegotiator.Application.Common.Exceptions.Base;
-using PriceNegotiator.Application.Dtos.Assortment;
-using PriceNegotiator.Application.Extensions.Mappings.Products;
-using PriceNegotiator.Application.Interfaces.Messaging;
+﻿using PriceNegotiator.Domain.Common.Exceptions.Base;
+using PriceNegotiator.Domain.Dtos.Assortment;
+using PriceNegotiator.Domain.Extensions.Mappings.Products;
+using PriceNegotiator.Domain.Interfaces.Messaging;
 using PriceNegotiator.Domain.Repositories;
 
-namespace PriceNegotiator.Application.Queries.GetProduct;
+namespace PriceNegotiator.Domain.Queries.GetProduct;
 
 public record GetProductQuery(Guid Id) : IQuery<ProductDto>;
 

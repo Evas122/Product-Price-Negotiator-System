@@ -1,12 +1,12 @@
-﻿using PriceNegotiator.Application.Common.Exceptions.Base;
-using PriceNegotiator.Application.Dtos.Auth;
-using PriceNegotiator.Application.Interfaces;
-using PriceNegotiator.Application.Interfaces.Messaging;
+﻿using PriceNegotiator.Domain.Common.Exceptions.Base;
+using PriceNegotiator.Domain.Dtos.Auth;
+using PriceNegotiator.Domain.Interfaces;
+using PriceNegotiator.Domain.Interfaces.Messaging;
 using PriceNegotiator.Domain.Entities.Auth;
 using PriceNegotiator.Domain.Enums;
 using PriceNegotiator.Domain.Repositories;
 
-namespace PriceNegotiator.Application.Commands.Register;
+namespace PriceNegotiator.Domain.Commands.Register;
 
 public record RegisterCommand(string Email, string Password, string FirstName, string LastName) : ICommand<AuthResultDto>;
 

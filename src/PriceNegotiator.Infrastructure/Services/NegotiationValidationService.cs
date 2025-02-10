@@ -1,5 +1,5 @@
-﻿using PriceNegotiator.Application.Common.Exceptions.Base;
-using PriceNegotiator.Application.Interfaces;
+﻿using PriceNegotiator.Domain.Common.Exceptions.Base;
+using PriceNegotiator.Domain.Interfaces;
 using PriceNegotiator.Domain.Entities.Negotiations;
 using PriceNegotiator.Domain.Enums;
 using PriceNegotiator.Domain.Repositories;

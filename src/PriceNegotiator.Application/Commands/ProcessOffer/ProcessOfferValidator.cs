@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace PriceNegotiator.Application.Commands.ProcessOffer;
+namespace PriceNegotiator.Domain.Commands.ProcessOffer;
 
 public class ProcessOfferValidator : AbstractValidator<ProcessOfferCommand>
 {

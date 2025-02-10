@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace PriceNegotiator.Application.Commands.Register;
+namespace PriceNegotiator.Domain.Commands.Register;
 
 public class RegisterValidator : AbstractValidator<RegisterCommand>
 {

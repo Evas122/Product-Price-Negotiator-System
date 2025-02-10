@@ -1,4 +1,4 @@
-﻿namespace PriceNegotiator.Application.Common.Exceptions.Base;
+﻿namespace PriceNegotiator.Domain.Common.Exceptions.Base;
 
 public class AlreadyExistsException : Exception
 {

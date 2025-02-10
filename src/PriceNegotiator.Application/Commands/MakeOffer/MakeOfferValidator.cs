@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace PriceNegotiator.Application.Commands.MakeOffer;
+namespace PriceNegotiator.Domain.Commands.MakeOffer;
 
 public class MakeOfferValidator : AbstractValidator<MakeOfferCommand>
 {

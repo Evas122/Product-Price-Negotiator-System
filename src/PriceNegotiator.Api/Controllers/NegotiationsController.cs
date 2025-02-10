@@ -1,11 +1,11 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using PriceNegotiator.Application.Commands.MakeOffer;
-using PriceNegotiator.Application.Commands.ProcessOffer;
-using PriceNegotiator.Application.Common.Constants;
-using PriceNegotiator.Application.Dtos.Assortment;
-using PriceNegotiator.Application.Dtos.Paged;
+using PriceNegotiator.Domain.Commands.MakeOffer;
+using PriceNegotiator.Domain.Commands.ProcessOffer;
+using PriceNegotiator.Domain.Common.Constants;
+using PriceNegotiator.Domain.Dtos.Assortment;
+using PriceNegotiator.Domain.Dtos.Paged;
 using PriceNegotiator.Domain.Enums;
 using Swashbuckle.AspNetCore.Annotations;
 

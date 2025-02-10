@@ -1,8 +1,8 @@
-﻿using PriceNegotiator.Application.Dtos.Assortment;
-using PriceNegotiator.Application.Dtos.Paged;
+﻿using PriceNegotiator.Domain.Dtos.Assortment;
+using PriceNegotiator.Domain.Dtos.Paged;
 using PriceNegotiator.Domain.Entities.Assortments;
 
-namespace PriceNegotiator.Application.Extensions.Mappings.Products;
+namespace PriceNegotiator.Domain.Extensions.Mappings.Products;
 public static class ProductExtension
 {
     public static ProductDto ToDto(this Product product)

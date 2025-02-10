@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using PriceNegotiator.Application.Interfaces;
+using PriceNegotiator.Domain.Interfaces;
 using PriceNegotiator.Domain.Entities.Auth;
 using PriceNegotiator.Domain.Repositories;
 

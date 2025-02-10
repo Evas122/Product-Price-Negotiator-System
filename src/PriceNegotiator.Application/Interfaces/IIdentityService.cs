@@ -1,6 +1,6 @@
 ﻿using PriceNegotiator.Domain.Entities.Auth;
 
-namespace PriceNegotiator.Application.Interfaces;
+namespace PriceNegotiator.Domain.Interfaces;
 
 public interface IIdentityService
 {

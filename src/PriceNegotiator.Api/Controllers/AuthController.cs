@@ -1,8 +1,8 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using PriceNegotiator.Application.Commands.Login;
-using PriceNegotiator.Application.Commands.Register;
-using PriceNegotiator.Application.Dtos.Auth;
+using PriceNegotiator.Domain.Commands.Login;
+using PriceNegotiator.Domain.Commands.Register;
+using PriceNegotiator.Domain.Dtos.Auth;
 using Swashbuckle.AspNetCore.Annotations;
 
 namespace PriceNegotiator.Api.Controllers;

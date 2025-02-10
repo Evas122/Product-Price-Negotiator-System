@@ -1,7 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
-using PriceNegotiator.Application.Interfaces;
-using PriceNegotiator.Domain.Entities.Negotiations;
-using PriceNegotiator.Domain.Enums;
+using PriceNegotiator.Domain.Interfaces;
 using PriceNegotiator.Domain.Repositories;
 
 namespace PriceNegotiator.Infrastructure.BackgroundJobs;
@@ -26,13 +24,13 @@ public class ExpiredNegotiationCancellationJob
         _logger.LogInformation("Hangfire Job: Checking for expired negotiations at {Time}", _dateTimeProvider.UtcNow);
 
         var thresholdDate = _dateTimeProvider.UtcNow.AddDays(-7);
-        IEnumerable<Negotiation> expiredNegotiations = await _negotiationRepository.GetExpiredNegotiationsAsync(thresholdDate);
+        var expiredNegotiations = await _negotiationRepository.GetExpiredNegotiationsAsync(thresholdDate);
 
         if (expiredNegotiations.Any())
         {
             foreach (var negotiation in expiredNegotiations)
             {
-                negotiation.Status = NegotiationStatus.Cancelled;
+                negotiation.Cancel();
             }
 
             await _negotiationRepository.UpdateRangeAsync(expiredNegotiations);

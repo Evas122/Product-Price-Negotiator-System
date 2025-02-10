@@ -1,10 +1,10 @@
 ﻿using Moq;
-using PriceNegotiator.Application.Commands.CreateProduct;
-using PriceNegotiator.Application.Interfaces;
+using PriceNegotiator.Domain.Commands.CreateProduct;
+using PriceNegotiator.Domain.Interfaces;
 using PriceNegotiator.Domain.Entities.Assortments;
 using PriceNegotiator.Domain.Repositories;
 
-namespace PriceNegotiator.Application.UnitTests.CommandsTests;
+namespace PriceNegotiator.Domain.UnitTests.CommandsTests;
 
 public class CreateProductHandlerTests
 {

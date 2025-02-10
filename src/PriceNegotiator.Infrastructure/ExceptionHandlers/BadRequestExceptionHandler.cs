@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using PriceNegotiator.Application.Common.Exceptions.Base;
+using PriceNegotiator.Domain.Common.Exceptions.Base;
 
 namespace PriceNegotiator.Infrastructure.ExceptionHandlers;
 

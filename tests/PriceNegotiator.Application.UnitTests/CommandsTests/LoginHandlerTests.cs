@@ -1,11 +1,11 @@
 ﻿using Moq;
-using PriceNegotiator.Application.Commands.Login;
-using PriceNegotiator.Application.Common.Exceptions.Base;
-using PriceNegotiator.Application.Interfaces;
+using PriceNegotiator.Domain.Commands.Login;
+using PriceNegotiator.Domain.Common.Exceptions.Base;
+using PriceNegotiator.Domain.Interfaces;
 using PriceNegotiator.Domain.Entities.Auth;
 using PriceNegotiator.Domain.Repositories;
 
-namespace PriceNegotiator.Application.UnitTests.CommandsTests;
+namespace PriceNegotiator.Domain.UnitTests.CommandsTests;
 
 public class LoginHandlerTests
 {

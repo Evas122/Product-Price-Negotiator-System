@@ -1,6 +1,6 @@
-﻿using PriceNegotiator.Application.Commands.CreateProduct;
+﻿using PriceNegotiator.Domain.Commands.CreateProduct;
 
-namespace PriceNegotiator.Application.UnitTests.ValidatorsTests;
+namespace PriceNegotiator.Domain.UnitTests.ValidatorsTests;
 
 public class ValidatorTests
 {

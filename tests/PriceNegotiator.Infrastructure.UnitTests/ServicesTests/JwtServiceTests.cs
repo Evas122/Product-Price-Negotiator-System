@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Options;
 using Moq;
-using PriceNegotiator.Application.Common.Options;
-using PriceNegotiator.Application.Interfaces;
+using PriceNegotiator.Domain.Common.Options;
+using PriceNegotiator.Domain.Interfaces;
 using PriceNegotiator.Domain.Entities.Auth;
 using PriceNegotiator.Domain.Enums;
 using PriceNegotiator.Infrastructure.Services;

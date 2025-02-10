@@ -52,4 +52,17 @@ public class NegotiationRepository : INegotiationRepository
             await _dbContext.SaveChangesAsync();
         }
     }
+
+    public async Task<IEnumerable<Negotiation>> GetExpiredNegotiationsAsync(DateTime threshold)
+    {
+        return await _dbContext.Negotiations.
+            Where(x => x.Status == NegotiationStatus.Rejected && x.LastRejectionAt.HasValue && x.LastRejectionAt.Value <= threshold)
+            .ToListAsync();
+    }
+
+    public async Task UpdateRangeAsync(IEnumerable<Negotiation> negotiations)
+    {
+        _dbContext.Negotiations.UpdateRange(negotiations);
+        await _dbContext.SaveChangesAsync();
+    }
 }

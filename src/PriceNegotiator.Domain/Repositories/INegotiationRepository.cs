@@ -11,4 +11,6 @@ public interface INegotiationRepository
     Task UpdateAsync(Negotiation negotiation);
     Task<bool> ExistAsync(Guid negotiationId);
     Task UpdateStatusAsync(Guid negotiationId, NegotiationStatus newStatus);
+    Task<IEnumerable<Negotiation>> GetExpiredNegotiationsAsync(DateTime trheshold);
+    Task UpdateRangeAsync(IEnumerable<Negotiation> negotiations);
 }

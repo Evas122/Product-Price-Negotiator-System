@@ -19,6 +19,7 @@ public static class ServiceCollectionExtension
         services.AddNegotiations();
         services.AddExceptionHandlers();
         services.AddDatabaseMigrator();
+        services.AddHangfireJobs(configuration);
 
         return services;
     }

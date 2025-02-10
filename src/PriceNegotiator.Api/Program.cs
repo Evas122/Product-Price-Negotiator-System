@@ -27,6 +27,8 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+app.UseHangfireJobs(builder.Configuration);
+
 await app.EnsureDatabaseMigratedAsync();
 
 app.Run();

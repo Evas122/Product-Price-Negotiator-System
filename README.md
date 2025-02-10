@@ -11,11 +11,14 @@ The Price Negotiator System is an application designed for price negotiation and
 Clone this repository to your local machine or download the project files:
 
 ```bash
-git clone https://your-repo-url.git
+git clone https://github.com/Evas122/Product-Price-Negotiator-System
 ```
 
-### 2. Open the appsettings.json and configure required settings. For Example set up the database connection string as follows:
+### 2. Configure the application
 
+Open the appsettings.json file in the src/PriceNegotiator.Api directory and provide the necessary configuration values, such as connection strings or other application settings.
+
+Example configuration:
 ```json
 {
   "ConnectionStrings": {
@@ -24,20 +27,27 @@ git clone https://your-repo-url.git
 }
 ```
 
-### 3. Run the project with Docker.
+### 3. Run the project with Docker
+
+Navigate to the root directory of the project (where the docker-compose.yml file is located) and run the following command:
 
 ```bash
 docker-compose up --d
 ```
-This will be build the application.
+This command will:
+
+1. Build the application.
+2. Start the database service (sqldata).
+3. Start the application service (price-negotiator-app).
 
 ### 4. Wait for initialization
-The application runs automated database migrations at startup and depends on the database being ready.
-Please wait 10 seconds after starting the services for the database to initialize before the application begins running.
+The application has automated database migrations that run on startup. It will wait for the database to be ready before applying migrations.
+
+Important: After starting the services, please wait 10 seconds for the database to fully initialize before the application starts.
 
 ### 5. Access the application
-Once initialized, the application will be available at:
+Once everything is ready, the application will be accessible at the following URL:
 
 http://localhost:5268/swagger/index.html
 
-This Swagger interface allows you to test and interact with the available API endpoints.
+You can use the Swagger interface to explore and test the available endpoints.

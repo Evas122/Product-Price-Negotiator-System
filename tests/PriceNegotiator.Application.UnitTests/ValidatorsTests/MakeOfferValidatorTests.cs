@@ -1,7 +1,7 @@
 ﻿using FluentValidation.TestHelper;
-using PriceNegotiator.Domain.Commands.MakeOffer;
+using PriceNegotiator.Application.Commands.MakeOffer;
 
-namespace PriceNegotiator.Domain.UnitTests.ValidatorsTests;
+namespace PriceNegotiator.Application.UnitTests.ValidatorsTests;
 
 public class MakeOfferValidatorTests
 {

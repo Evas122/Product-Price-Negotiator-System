@@ -1,6 +1,6 @@
-﻿using PriceNegotiator.Domain.Commands.Register;
+﻿using PriceNegotiator.Application.Commands.Register;
 
-namespace PriceNegotiator.Domain.UnitTests.ValidatorsTests;
+namespace PriceNegotiator.Application.UnitTests.ValidatorsTests;
 
 public class RegisterValidatorTests
 {

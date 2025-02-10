@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace PriceNegotiator.Domain.Queries.GetProduct;
+namespace PriceNegotiator.Application.Queries.GetProduct;
 
 public class GetProductValidator : AbstractValidator<GetProductQuery>
 {

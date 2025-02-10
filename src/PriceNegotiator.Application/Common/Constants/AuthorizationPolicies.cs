@@ -1,4 +1,4 @@
-﻿namespace PriceNegotiator.Domain.Common.Constants;
+﻿namespace PriceNegotiator.Application.Common.Constants;
 
 public static class AuthorizationPolicies
 {

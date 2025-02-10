@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace PriceNegotiator.Domain.Interfaces.Messaging;
+namespace PriceNegotiator.Application.Interfaces.Messaging;
 
 public interface IQueryHandler<in TQuery, TResponse> : IRequestHandler<TQuery, TResponse>
     where TQuery : IQuery<TResponse>;

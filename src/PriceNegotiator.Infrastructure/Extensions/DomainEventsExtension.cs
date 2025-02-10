@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using PriceNegotiator.Domain.Interfaces;
+using PriceNegotiator.Application.Interfaces;
 using PriceNegotiator.Infrastructure.DomainEvents;
 
 namespace PriceNegotiator.Infrastructure.Extensions;

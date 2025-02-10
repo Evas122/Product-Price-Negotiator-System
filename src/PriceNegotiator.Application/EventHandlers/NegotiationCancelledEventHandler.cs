@@ -1,9 +1,9 @@
 ﻿using MediatR;
 using Microsoft.Extensions.Logging;
-using PriceNegotiator.Domain.Common.DomainEvents;
+using PriceNegotiator.Application.Common.DomainEvents;
 using PriceNegotiator.Domain.Events;
 
-namespace PriceNegotiator.Domain.EventHandlers;
+namespace PriceNegotiator.Application.EventHandlers;
 
 public class NegotiationCancelledEventHandler : INotificationHandler<DomainEventNotification<NegotiationCancelledEvent>>
 {

@@ -1,4 +1,4 @@
-﻿namespace PriceNegotiator.Domain.Common.Exceptions.Base;
+﻿namespace PriceNegotiator.Application.Common.Exceptions.Base;
 
 public class BadRequestException : Exception
 {

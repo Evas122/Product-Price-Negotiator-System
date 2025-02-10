@@ -1,6 +1,6 @@
 ﻿using PriceNegotiator.Domain.Entities.Negotiations;
 
-namespace PriceNegotiator.Domain.Interfaces;
+namespace PriceNegotiator.Application.Interfaces;
 
 public interface INegotiationValidationService
 {

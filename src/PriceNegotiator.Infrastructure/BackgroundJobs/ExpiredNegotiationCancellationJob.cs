@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
-using PriceNegotiator.Domain.Interfaces;
+using PriceNegotiator.Application.Interfaces;
 using PriceNegotiator.Domain.Repositories;
 
 namespace PriceNegotiator.Infrastructure.BackgroundJobs;

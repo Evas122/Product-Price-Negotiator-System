@@ -1,4 +1,4 @@
-﻿namespace PriceNegotiator.Domain.Common.Options;
+﻿namespace PriceNegotiator.Application.Common.Options;
 
 public class JwtSettings
 {

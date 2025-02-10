@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace PriceNegotiator.Domain.Commands.CreateProduct;
+namespace PriceNegotiator.Application.Commands.CreateProduct;
 
 public class CreateProductValidator : AbstractValidator<CreateProductCommand>
 {

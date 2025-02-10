@@ -1,11 +1,11 @@
 ﻿using MediatR;
-using PriceNegotiator.Domain.Common.Exceptions.Base;
-using PriceNegotiator.Domain.Interfaces;
-using PriceNegotiator.Domain.Interfaces.Messaging;
+using PriceNegotiator.Application.Common.Exceptions.Base;
+using PriceNegotiator.Application.Interfaces;
+using PriceNegotiator.Application.Interfaces.Messaging;
 using PriceNegotiator.Domain.Enums;
 using PriceNegotiator.Domain.Repositories;
 
-namespace PriceNegotiator.Domain.Commands.ProcessOffer;
+namespace PriceNegotiator.Application.Commands.ProcessOffer;
 
 public record ProcessOfferCommand(Guid NegotiationId, EmployeeAction Action) : ICommand<Unit>;
 

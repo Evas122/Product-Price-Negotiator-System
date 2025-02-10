@@ -1,12 +1,12 @@
 ﻿using Moq;
-using PriceNegotiator.Domain.Commands.MakeOffer;
-using PriceNegotiator.Domain.Common.Exceptions.Base;
-using PriceNegotiator.Domain.Interfaces;
+using PriceNegotiator.Application.Commands.MakeOffer;
+using PriceNegotiator.Application.Common.Exceptions.Base;
+using PriceNegotiator.Application.Interfaces;
 using PriceNegotiator.Domain.Entities.Negotiations;
 using PriceNegotiator.Domain.Enums;
 using PriceNegotiator.Domain.Repositories;
 
-namespace PriceNegotiator.Domain.UnitTests.CommandsTests;
+namespace PriceNegotiator.Application.UnitTests.CommandsTests;
 
 public class MakeOfferHandlerTests
 {

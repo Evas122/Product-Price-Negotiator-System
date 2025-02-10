@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using PriceNegotiator.Domain.Common.Interfaces;
 
-namespace PriceNegotiator.Domain.Common.DomainEvents;
+namespace PriceNegotiator.Application.Common.DomainEvents;
 
 public class DomainEventNotification<TDomainEvent> : INotification
     where TDomainEvent : IDomainEvent

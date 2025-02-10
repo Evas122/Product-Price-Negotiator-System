@@ -1,4 +1,4 @@
-﻿using PriceNegotiator.Domain.Interfaces;
+﻿using PriceNegotiator.Application.Interfaces;
 
 namespace PriceNegotiator.Infrastructure.Time;
 

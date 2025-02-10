@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace PriceNegotiator.Domain.Extensions;
+namespace PriceNegotiator.Application.Extensions;
 
 public static class ServiceCollectionExtension
 {

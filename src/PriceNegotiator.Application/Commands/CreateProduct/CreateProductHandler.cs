@@ -1,10 +1,10 @@
 ﻿using MediatR;
-using PriceNegotiator.Domain.Interfaces;
-using PriceNegotiator.Domain.Interfaces.Messaging;
+using PriceNegotiator.Application.Interfaces;
+using PriceNegotiator.Application.Interfaces.Messaging;
 using PriceNegotiator.Domain.Entities.Assortments;
 using PriceNegotiator.Domain.Repositories;
 
-namespace PriceNegotiator.Domain.Commands.CreateProduct;
+namespace PriceNegotiator.Application.Commands.CreateProduct;
 
 public record CreateProductCommand(string Name, string Description, decimal BasePrice) : ICommand<Unit>;
 

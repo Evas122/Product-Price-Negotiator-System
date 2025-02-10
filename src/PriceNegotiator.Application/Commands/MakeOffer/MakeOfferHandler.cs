@@ -1,12 +1,12 @@
 ﻿using MediatR;
-using PriceNegotiator.Domain.Common.Exceptions.Base;
-using PriceNegotiator.Domain.Interfaces;
-using PriceNegotiator.Domain.Interfaces.Messaging;
+using PriceNegotiator.Application.Common.Exceptions.Base;
+using PriceNegotiator.Application.Interfaces;
+using PriceNegotiator.Application.Interfaces.Messaging;
 using PriceNegotiator.Domain.Entities.Negotiations;
 using PriceNegotiator.Domain.Enums;
 using PriceNegotiator.Domain.Repositories;
 
-namespace PriceNegotiator.Domain.Commands.MakeOffer;
+namespace PriceNegotiator.Application.Commands.MakeOffer;
 
 public record MakeOfferCommand(string ClientEmail, Guid ProductId, decimal ProposedPrice) : ICommand<Unit>;
 

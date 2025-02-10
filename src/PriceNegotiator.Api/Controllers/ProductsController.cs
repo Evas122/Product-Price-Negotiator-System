@@ -1,12 +1,12 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using PriceNegotiator.Domain.Commands.CreateProduct;
-using PriceNegotiator.Domain.Common.Constants;
-using PriceNegotiator.Domain.Dtos.Assortment;
-using PriceNegotiator.Domain.Dtos.Paged;
-using PriceNegotiator.Domain.Queries.GetPagedProducts;
-using PriceNegotiator.Domain.Queries.GetProduct;
+using PriceNegotiator.Application.Commands.CreateProduct;
+using PriceNegotiator.Application.Common.Constants;
+using PriceNegotiator.Application.Dtos.Assortment;
+using PriceNegotiator.Application.Dtos.Paged;
+using PriceNegotiator.Application.Queries.GetPagedProducts;
+using PriceNegotiator.Application.Queries.GetProduct;
 using Swashbuckle.AspNetCore.Annotations;
 
 namespace PriceNegotiator.Api.Controllers;

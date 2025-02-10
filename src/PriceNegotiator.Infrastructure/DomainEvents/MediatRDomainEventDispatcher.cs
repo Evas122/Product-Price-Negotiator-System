@@ -1,6 +1,6 @@
 ﻿using MediatR;
-using PriceNegotiator.Domain.Common.DomainEvents;
-using PriceNegotiator.Domain.Interfaces;
+using PriceNegotiator.Application.Common.DomainEvents;
+using PriceNegotiator.Application.Interfaces;
 using PriceNegotiator.Domain.Common.Interfaces;
 
 namespace PriceNegotiator.Infrastructure.DomainEvents;

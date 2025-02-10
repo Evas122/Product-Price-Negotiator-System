@@ -1,10 +1,10 @@
-﻿using PriceNegotiator.Domain.Dtos.Assortment;
-using PriceNegotiator.Domain.Dtos.Paged;
-using PriceNegotiator.Domain.Extensions.Mappings.Products;
-using PriceNegotiator.Domain.Interfaces.Messaging;
+﻿using PriceNegotiator.Application.Dtos.Assortment;
+using PriceNegotiator.Application.Dtos.Paged;
+using PriceNegotiator.Application.Extensions.Mappings.Products;
+using PriceNegotiator.Application.Interfaces.Messaging;
 using PriceNegotiator.Domain.Repositories;
 
-namespace PriceNegotiator.Domain.Queries.GetPagedProducts;
+namespace PriceNegotiator.Application.Queries.GetPagedProducts;
 
 public record GetPagedProductsQuery(int? Page, int? PageSize) : IQuery<PagedDto<ProductDto>>;
 

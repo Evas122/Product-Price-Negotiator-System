@@ -1,7 +1,7 @@
-﻿using PriceNegotiator.Domain.Commands.ProcessOffer;
+﻿using PriceNegotiator.Application.Commands.ProcessOffer;
 using PriceNegotiator.Domain.Enums;
 
-namespace PriceNegotiator.Domain.UnitTests.ValidatorsTests;
+namespace PriceNegotiator.Application.UnitTests.ValidatorsTests;
 
 public class ProcessOfferValidatorTests
 {

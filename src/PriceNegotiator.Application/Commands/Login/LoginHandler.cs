@@ -1,10 +1,10 @@
-﻿using PriceNegotiator.Domain.Common.Exceptions.Base;
-using PriceNegotiator.Domain.Dtos.Auth;
-using PriceNegotiator.Domain.Interfaces;
-using PriceNegotiator.Domain.Interfaces.Messaging;
+﻿using PriceNegotiator.Application.Common.Exceptions.Base;
+using PriceNegotiator.Application.Dtos.Auth;
+using PriceNegotiator.Application.Interfaces;
+using PriceNegotiator.Application.Interfaces.Messaging;
 using PriceNegotiator.Domain.Repositories;
 
-namespace PriceNegotiator.Domain.Commands.Login;
+namespace PriceNegotiator.Application.Commands.Login;
 
 public record LoginCommand(string Email, string Password) : ICommand<AuthResultDto>;
 public class LoginHandler : ICommandHandler<LoginCommand, AuthResultDto>

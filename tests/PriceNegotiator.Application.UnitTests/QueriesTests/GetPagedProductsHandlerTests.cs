@@ -1,9 +1,9 @@
 ﻿using Moq;
-using PriceNegotiator.Domain.Queries.GetPagedProducts;
+using PriceNegotiator.Application.Queries.GetPagedProducts;
 using PriceNegotiator.Domain.Entities.Assortments;
 using PriceNegotiator.Domain.Repositories;
 
-namespace PriceNegotiator.Domain.UnitTests.QueriesTests;
+namespace PriceNegotiator.Application.UnitTests.QueriesTests;
 
 public class GetPagedProductsHandlerTests
 {

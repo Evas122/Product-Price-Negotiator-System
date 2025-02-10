@@ -1,6 +1,6 @@
-﻿using PriceNegotiator.Domain.Queries.GetPagedProducts;
+﻿using PriceNegotiator.Application.Queries.GetPagedProducts;
 
-namespace PriceNegotiator.Domain.UnitTests.ValidatorsTests;
+namespace PriceNegotiator.Application.UnitTests.ValidatorsTests;
 
 public class GetPagedProductsValidatorTests
 {

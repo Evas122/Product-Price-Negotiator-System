@@ -1,6 +1,6 @@
 ﻿using PriceNegotiator.Domain.Common.Interfaces;
 
-namespace PriceNegotiator.Domain.Interfaces;
+namespace PriceNegotiator.Application.Interfaces;
 
 public interface IDomainEventDispatcher
 {

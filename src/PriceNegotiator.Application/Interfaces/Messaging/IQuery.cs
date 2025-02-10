@@ -1,5 +1,5 @@
 ﻿using MediatR;
 
-namespace PriceNegotiator.Domain.Interfaces.Messaging;
+namespace PriceNegotiator.Application.Interfaces.Messaging;
 
 public interface IQuery<out TResponse> : IRequest<TResponse>;

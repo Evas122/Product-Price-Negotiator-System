@@ -2,7 +2,7 @@
 using FluentValidation.AspNetCore;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
-namespace PriceNegotiator.Domain.Extensions;
+namespace PriceNegotiator.Application.Extensions;
 
 public static class FluentValidationExtension
 {

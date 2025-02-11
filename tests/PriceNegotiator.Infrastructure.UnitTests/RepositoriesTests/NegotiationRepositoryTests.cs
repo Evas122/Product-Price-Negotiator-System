@@ -1,4 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Moq;
+using PriceNegotiator.Application.Interfaces;
 using PriceNegotiator.Domain.Entities.Negotiations;
 using PriceNegotiator.Domain.Enums;
 using PriceNegotiator.Infrastructure.Data;
@@ -17,7 +19,8 @@ public class NegotiationRepositoryTests
             .Options;
 
         using var context = new AppDbContext(options);
-        var repository = new NegotiationRepository(context);
+        var eventDispatcherMock = new Mock<IDomainEventDispatcher>();
+        var repository = new NegotiationRepository(context, eventDispatcherMock.Object);
         var negotiation = new Negotiation
         {
             Id = Guid.NewGuid(),
@@ -43,7 +46,8 @@ public class NegotiationRepositoryTests
            .Options;
 
         using var context = new AppDbContext(options);
-        var repository = new NegotiationRepository(context);
+        var eventDispatcherMock = new Mock<IDomainEventDispatcher>();
+        var repository = new NegotiationRepository(context, eventDispatcherMock.Object);
         var negotiation = new Negotiation
         {
             Id = Guid.NewGuid(),
@@ -72,7 +76,8 @@ public class NegotiationRepositoryTests
             .Options;
 
         using var context = new AppDbContext(options);
-        var repository = new NegotiationRepository(context);
+        var eventDispatcherMock = new Mock<IDomainEventDispatcher>();
+        var repository = new NegotiationRepository(context, eventDispatcherMock.Object);
         var productId = Guid.NewGuid();
         var negotiation = new Negotiation
         {

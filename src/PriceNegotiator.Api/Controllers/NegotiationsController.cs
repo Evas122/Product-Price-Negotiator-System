@@ -4,8 +4,6 @@ using Microsoft.AspNetCore.Mvc;
 using PriceNegotiator.Application.Commands.MakeOffer;
 using PriceNegotiator.Application.Commands.ProcessOffer;
 using PriceNegotiator.Application.Common.Constants;
-using PriceNegotiator.Application.Dtos.Assortment;
-using PriceNegotiator.Application.Dtos.Paged;
 using PriceNegotiator.Domain.Enums;
 using Swashbuckle.AspNetCore.Annotations;
 

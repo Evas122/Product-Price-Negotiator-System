@@ -1,5 +1,4 @@
-﻿using MediatR;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using PriceNegotiator.Application.Interfaces;
 using PriceNegotiator.Domain.Entities.Negotiations;
 using PriceNegotiator.Domain.Enums;
@@ -13,7 +12,7 @@ public class NegotiationRepository : INegotiationRepository
     private readonly AppDbContext _dbContext;
     private readonly IDomainEventDispatcher _eventDispatcher;
 
-    public NegotiationRepository(AppDbContext dbContext, IMediator mediator, IDomainEventDispatcher eventDispatcher)
+    public NegotiationRepository(AppDbContext dbContext, IDomainEventDispatcher eventDispatcher)
     {
         _dbContext = dbContext;
         _eventDispatcher = eventDispatcher;
